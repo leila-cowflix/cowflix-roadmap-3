@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap Cowflix 30 Dias</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(-100px, 100px);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .header p {
+            font-size: 18px;
+            opacity: 0.95;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== HERO CARDS ===== */
+        .hero-section {
+            max-width: 1200px;
+            margin: -50px auto 80px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #1abc9c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-card-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #1abc9c;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .hero-card h3 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .hero-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ===== SECTION CONTAINER ===== */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        /* ===== PILARES SECTION ===== */
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .pilar-card {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid #1abc9c;
+            text-align: center;
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .pilar-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .pilar-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .pilar-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        /* ===== TIMELINE SECTION ===== */
+        .timeline-section {
+            background: white;
+            padding: 80px 20px;
+            margin: 80px 0;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Timeline vertical line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #1abc9c;
+            transform: translateX(-50%);
+        }
+
+        .timeline-items {
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            width: calc(50% - 30px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            width: calc(50% - 30px);
+            text-align: left;
+        }
+
+        /* Timeline dot */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #1abc9c;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #1abc9c;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: none;
+            border-right: 4px solid #1abc9c;
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: #1abc9c;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .timeline-dates {
+            font-size: 13px;
+            color: #1abc9c;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .timeline-activities {
+            margin-bottom: 15px;
+        }
+
+        .activities-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #1abc9c;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .activity-item {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 8px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .activity-item::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #1abc9c;
+            font-weight: 600;
+        }
+
+        .milestone-box {
+            background: #fffbf0;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+
+        .milestone-day {
+            font-size: 12px;
+            font-weight: 700;
+            color: #f39c12;
+            margin-bottom: 5px;
+        }
+
+        .milestone-text {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        /* ===== MARCOS SECTION ===== */
+        .marcos-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .marcos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .marco-card {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(26, 188, 156, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .marco-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(26, 188, 156, 0.35);
+        }
+
+        .marco-day {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .marco-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .marco-desc {
+            font-size: 14px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .cta-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1abc9c;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .hero-section {
+                grid-template-columns: 1fr;
+                margin-bottom: 60px;
+            }
+
+            .pilares-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .timeline-container::before {
+                left: 0;
+            }
+
+            .timeline-item::before {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                width: calc(100% - 30px);
+                margin-left: 30px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-content {
+                border-left: 4px solid #1abc9c;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                border-left: 4px solid #1abc9c;
+                border-right: none;
+            }
+
+            .marcos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .cta-section p {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 60px 20px 40px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .hero-card {
+                padding: 25px;
+            }
+
+            .hero-card h3 {
+                font-size: 22px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .marcos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .marco-card {
+                padding: 25px 20px;
+            }
+
+            .marco-day {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🐄 COWFLIX</div>
+            <h1>Roadmap de 30 Dias</h1>
+            <p>Estratégia de Crescimento: Transformando dados técnicos em ROI previsível</p>
+        </div>
+    </div>
+
+    <!-- HERO CARDS -->
+    <div class="hero-section">
+        <div class="hero-card">
+            <div class="hero-card-label">Duração</div>
+            <h3>30 Dias</h3>
+            <p>Ciclo completo de estratégia e execução</p>
+        </div>
+        <div class="hero-card">
+            <div class="hero-card-label">Foco Principal</div>
+            <h3>Otimização do Funil</h3>
+            <p>Teste A/B, Remarketing e Feedback</p>
+        </div>
+        <div class="hero-card">
+            <div class="hero-card-label">Objetivo</div>
+            <h3>ROI Previsível</h3>
+            <p>Validação de estratégia com dados reais</p>
+        </div>
+    </div>
+
+    <!-- 4 PILARES -->
+    <div class="section">
+        <h2 class="section-title">4 Pilares de Crescimento</h2>
+        <div class="pilares-grid">
+            <div class="pilar-card">
+                <div class="pilar-number">1</div>
+                <h3>Validação de Comunicação</h3>
+                <p>Definir se a comunicação ressoa mais por autoridade técnica ou impacto financeiro</p>
+            </div>
+            <div class="pilar-card">
+                <div class="pilar-number">2</div>
+                <h3>Recuperação de Leads</h3>
+                <p>Estancar a sangria de vendas perdidas, oferecendo suporte especializado no checkout</p>
+            </div>
+            <div class="pilar-card">
+                <div class="pilar-number">3</div>
+                <h3>Motor de Conversão</h3>
+                <p>Descobrir o verdadeiro gatilho de conversão para direcionar investimento com precisão</p>
+            </div>
+            <div class="pilar-card">
+                <div class="pilar-number">4</div>
+                <h3>Otimização Contínua</h3>
+                <p>Usar feedback direto dos novos alunos para otimizar a jornada continuamente</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="timeline-section">
+        <div class="section">
+            <h2 class="section-title">Cronograma de 4 Semanas</h2>
+            <div class="timeline-container">
+                <div class="timeline-items">
+                    <!-- SEMANA 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-badge">SEMANA 1</span>
+                            <h3 class="timeline-title">Descobrir o que realmente move nosso cliente</h3>
+                            <div class="timeline-dates">Dias 1-7</div>
+                            <div class="timeline-subtitle">Inteligência e descoberta do cliente</div>
+                            <div class="timeline-activities">
+                                <div class="activities-label">Atividades Principais</div>
+                                <div class="activity-item">Teste A/B rigoroso entre headlines</div>
+                                <div class="activity-item">Monitoramento da Taxa de Clique</div>
+                                <div class="activity-item">Rastreamento avançado de leads</div>
+                                <div class="activity-item">Identificação do gatilho mental dominante</div>
+                            </div>
+                            <div class="milestone-box">
+                                <div class="milestone-day">Dia 4 - Teste A/B de Mensagem</div>
+                                <div class="milestone-text">Definição do gatilho mental que mais ressoa com o ICP</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEMANA 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-badge">SEMANA 2</span>
+                            <h3 class="timeline-title">Estancar a perda de leads qualificados</h3>
+                            <div class="timeline-dates">Dias 8-14</div>
+                            <div class="timeline-subtitle">Recuperação Ativa</div>
+                            <div class="timeline-activities">
+                                <div class="activities-label">Atividades Principais</div>
+                                <div class="activity-item">Campanhas de Remarketing agressivas</div>
+                                <div class="activity-item">Suporte técnico via WhatsApp</div>
+                                <div class="activity-item">Pesquisa de Feedback pós-compra</div>
+                                <div class="activity-item">Redução do Custo por Aquisição (CAC)</div>
+                            </div>
+                            <div class="milestone-box">
+                                <div class="milestone-day">Dia 12 - Recuperação Ativa</div>
+                                <div class="milestone-text">Implementação de remarketing e suporte via WhatsApp</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEMANA 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-badge">SEMANA 3</span>
+                            <h3 class="timeline-title">Transformar aprendizado em escala operacional</h3>
+                            <div class="timeline-dates">Dias 15-21</div>
+                            <div class="timeline-subtitle">Escala e Otimização</div>
+                            <div class="timeline-activities">
+                                <div class="activities-label">Atividades Principais</div>
+                                <div class="activity-item">Definição da headline vencedora</div>
+                                <div class="activity-item">Atualização unificada da comunicação</div>
+                                <div class="activity-item">Ajuste fino dos criativos</div>
+                                <div class="activity-item">Cruzamento de dados e análises</div>
+                            </div>
+                            <div class="milestone-box">
+                                <div class="milestone-day">Dia 15 - Tom de Voz Oficial</div>
+                                <div class="milestone-text">Consolidação da comunicação baseada em dados reais</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEMANA 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-badge">SEMANA 4</span>
+                            <h3 class="timeline-title">Entrega de um funil otimizado e pronto para escala</h3>
+                            <div class="timeline-dates">Dias 22-30</div>
+                            <div class="timeline-subtitle">Consolidação e Escalabilidade</div>
+                            <div class="timeline-activities">
+                                <div class="activities-label">Atividades Principais</div>
+                                <div class="activity-item">Otimização da Página de Vendas</div>
+                                <div class="activity-item">Relatório de ROI consolidado</div>
+                                <div class="activity-item">Planejamento do próximo ciclo</div>
+                                <div class="activity-item">Processo contínuo de melhoria</div>
+                            </div>
+                            <div class="milestone-box">
+                                <div class="milestone-day">Dia 30 - Motor de Vendas Identificado</div>
+                                <div class="milestone-text">Plano de escala de tráfego com crescimento previsível</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MARCOS DE SUCESSO -->
+    <div class="marcos-section">
+        <h2 class="section-title">Marcos de Sucesso</h2>
+        <div class="marcos-grid">
+            <div class="marco-card">
+                <div class="marco-day">Dia 4</div>
+                <div class="marco-title">Teste A/B</div>
+                <div class="marco-desc">Validação de comunicação</div>
+            </div>
+            <div class="marco-card">
+                <div class="marco-day">Dia 12</div>
+                <div class="marco-title">Recuperação Ativa</div>
+                <div class="marco-desc">Implementação de remarketing</div>
+            </div>
+            <div class="marco-card">
+                <div class="marco-day">Dia 15</div>
+                <div class="marco-title">Tom de Voz</div>
+                <div class="marco-desc">Comunicação unificada</div>
+            </div>
+            <div class="marco-card">
+                <div class="marco-day">Dia 30</div>
+                <div class="marco-title">Motor de Vendas</div>
+                <div class="marco-desc">Plano de escala</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA SECTION -->
+    <div class="cta-section">
+        <div class="cta-content">
+            <h2>Prontos para elevar o patamar da Cowflix</h2>
+            <p>Com a certeza de que estamos prontos para elevar o patamar da Cowflix, nosso foco agora é total na execução técnica e no monitoramento rigoroso de cada dado coletado durante os 30 dias.</p>
+            <button class="cta-button">Começar Agora</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>&copy; 2026 Cowflix | Roadmap de Crescimento 30 Dias | Estratégia de Otimização de Funil</p>
+    </div>
+</body>
+</html>
